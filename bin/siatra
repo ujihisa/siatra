@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+require 'pathname'
+$: << 'lib'
+require 'siatra'
+case ARGV[0]
+when '-h', '--help'
+  puts Siatra.help
+when '-v', '--version'
+  puts Siatra::VERSION
+else
+  abort 'no filename given' unless ARGV[0]
+  filename = Pathname(ARGV.shift).expand_path
+  puts Siatra filename.read
+end
+# vim: set ft=ruby :
