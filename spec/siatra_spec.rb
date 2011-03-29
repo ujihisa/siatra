@@ -6,6 +6,10 @@ describe 'Siatra' do
     it 'converts linefeeds to semicolons' do
       Siatra("this\nis\na\npen.").should == 'this;is;a;pen.'
     end
+
+    it "doesn't convert shebang line" do
+      Siatra("#!a\nis\na\npen.").should == "#!a\nis;a;pen."
+    end
   end
 end
 
